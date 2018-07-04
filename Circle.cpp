@@ -4,7 +4,9 @@
 
 Circle::Circle(double r)
     : r_(r)
-{}
+{
+	std::cout << "Zrobilem kolo" << std::endl;
+}
 
 Circle::Circle(const Circle & other)
 {
