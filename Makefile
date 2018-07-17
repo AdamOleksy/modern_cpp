@@ -1,16 +1,10 @@
-# Variables
- CCXX     = g++
- STD      = -std=c++14
- SCRS     = $(wildcard *.cpp)
- OBJS     = $(SCRS: .cpp = .o)
- CXXFLAGS = -Wall -Wextra -Werror -Wpedantic
- NAME     = -o $@
- 
- # Rules
- modernDebug.o: *.cpp *.hpp
-     $(CCXX) $(OBJS) $(STD) $(CXXFLAGS) $(NAME) -g
-     
- modernRelese.o: *.cpp *.hpp
-     $(CCXX) $(OBJS) $(STD) $(CXXFLAGS) $(NAME) -O3
- clean:
-     rm $(OBJS)
+modern: *.cpp *.hpp 
+	g++ -std=c++14 *.cpp -Wall -Wextra -Wpedantic -Werror -O3 -o $@ -I.
+
+
+modern_debug:
+	g++ -std=c++14 *.cpp -Wall -Wextra -Wpedantic -Werror -g -o $@ -I.
+
+clean:
+	rm modern
+	rm modern_debug
