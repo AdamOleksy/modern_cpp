@@ -1,9 +1,16 @@
+#Zmienne
+CPP=g++
+CPP_VERSION=-std=c++14
+SOURCE=*.cpp
+FLAGS=-Wall -Wextra -Wpedantic -Werror -o $@ -I
+
+
 modern: *.cpp *.hpp 
-	g++ -std=c++14 *.cpp -Wall -Wextra -Wpedantic -Werror -O3 -o $@ -I.
+	$(CPP) $(CPP_VERSION) $(SOURCE) $(FLAGS).
 
 
 modern_debug:
-	g++ -std=c++14 *.cpp -Wall -Wextra -Wpedantic -Werror -g -o $@ -I.
+	$(CPP) $(CPP_VERSION) $(SOURCE) $(FLAGS).
 
 clean:
 	rm modern
